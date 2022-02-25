@@ -1,6 +1,6 @@
 {
   "name": "kalibrasi",
-  "proxy": "http://kalibrasi.okeythen.my.id",
+  "proxy": "https://kalibrasi.okeythen.my.id",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
