@@ -19,18 +19,18 @@ export const jsonAdd = createAsyncThunk('json/jsonAdd', async (args, thunkApi) =
         if (existItem) {
             const cartItems = existId.name.map(item => item.pid === args.name.pid ? { ...item, jumlah: parseInt(item.jumlah) + args.name.jumlah } : item)
             console.log(cartItems);
-            const { data } = await Axios.put(`/api/json`, { id: args.id, name: cartItems })
+            const { data } = await Axios.put(`https://kalibrasi.okeythen.my.id/api/json`, { id: args.id, name: cartItems })
             return data
         }
         else {
             console.log('test');
             const cartItems = [...existId.name, args.name]
             console.log(cartItems);
-            const { data } = await Axios.put(`/api/json`, { id: args.id, name: cartItems })
+            const { data } = await Axios.put(`https://kalibrasi.okeythen.my.id/api/json`, { id: args.id, name: cartItems })
             return data
         }
     } else {
-        const { data } = await Axios.put(`/api/json`, { name: args.name })
+        const { data } = await Axios.put(`https://kalibrasi.okeythen.my.id/api/json`, { name: args.name })
         return data
     }
 })
@@ -45,7 +45,7 @@ export const jsonMin = createAsyncThunk('json/jsonmin', async (args, thunkApi) =
         if (existItem) {
             const cartItems = existId.name.map(item => item.pid === args.name.pid ? { ...item, jumlah: item.jumlah - args.name.jumlah } : item)
             console.log(cartItems);
-            const { data } = await Axios.put(`/api/json/minjson`, { id: args.id, name: cartItems })
+            const { data } = await Axios.put(`https://kalibrasi.okeythen.my.id/api/json/minjson`, { id: args.id, name: cartItems })
             return data
 
         } else {
@@ -66,7 +66,7 @@ export const jsonDel = createAsyncThunk('json/jsonDel', async (args, thunkApi) =
 
     if (existId) {
         const cartItems = existId.name.filter(item => item.pid !== args.name.pid)
-        const { data } = await Axios.put(`/api/json/minjson`, { id: args.id, name: cartItems })
+        const { data } = await Axios.put(`https://kalibrasi.okeythen.my.id/api/json/minjson`, { id: args.id, name: cartItems })
         console.log(data);
         // return data
     } else {

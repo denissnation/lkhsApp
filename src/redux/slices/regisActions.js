@@ -3,7 +3,7 @@ import Axios from 'axios'
 
 export const regisList = createAsyncThunk('regis/regisList', async (args, thunkApi) => {
 
-    const { data } = await Axios.get('/api/registrasi', {
+    const { data } = await Axios.get('https://kalibrasi.okeythen.my.id/api/registrasi', {
         headers: {
             Authorization: `Bearer ${thunkApi.getState().user.user.token}`
         }
@@ -12,7 +12,7 @@ export const regisList = createAsyncThunk('regis/regisList', async (args, thunkA
 })
 
 export const regisCreate = createAsyncThunk('regis/regisCreate', async (args, thunkApi) => {
-    await Axios.post('/api/registrasi', args, {
+    await Axios.post('https://kalibrasi.okeythen.my.id/api/registrasi', args, {
         headers: {
             Authorization: `Bearer ${thunkApi.getState().user.user.token}`
         }

@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import Axios from 'axios'
 
 export const lkhsList = createAsyncThunk('lkhs/lkhsList', async (args, thunkApi) => {
-    const { data } = await Axios.get('/api/lkhs', {
+    const { data } = await Axios.get('https://kalibrasi.okeythen.my.id/api/lkhs', {
         headers: {
             Authorization: `Bearer ${thunkApi.getState().user.user.token}`
         }
@@ -10,7 +10,7 @@ export const lkhsList = createAsyncThunk('lkhs/lkhsList', async (args, thunkApi)
     return data
 })
 export const lkhsCreate = createAsyncThunk('lkhs/lkhsCreate', async (args, thunkApi) => {
-    await Axios.post('/api/lkhs', args, {
+    await Axios.post('https://kalibrasi.okeythen.my.id/api/lkhs', args, {
         headers: {
             Authorization: `Bearer ${thunkApi.getState().user.user.token}`
         }
